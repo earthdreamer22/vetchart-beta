@@ -54,6 +54,8 @@
   details p { color:var(--muted); margin:10px 0 0; }
   footer { border-top:1px solid var(--line); padding:30px 0 50px; color:var(--muted); font-size:14px; }
   .note { font-size:14px; color:var(--muted); }
+  .notice { margin-top:22px; background:#fff; border:1px solid var(--line); border-left:5px solid var(--brand); border-radius:12px; padding:16px 18px; }
+  .notice p { margin:0; font-size:15px; }
   @media (max-width:640px) { h1 { font-size:30px; } nav { display:none; } section { padding:48px 0; } .lead { font-size:17px; }
     table.cmp th, table.cmp td { padding:8px 9px; font-size:13px; } .steps { gap:26px; } }
 </style>
@@ -63,7 +65,7 @@
 <header class="top">
   <div class="wrap">
     <a class="logo" href="#">VetChart <span>베타</span></a>
-    <nav><a href="#about">소개</a><a href="#how">참여 방법</a><a href="#privacy">보내는 정보</a><a href="#download">다운로드</a><a href="#faq">자주 묻는 질문</a></nav>
+    <nav><a href="#about">소개</a><a href="#how">참여 방법</a><a href="#privacy">보내는 정보</a><a href="#rights">자료 보호 원칙</a><a href="#download">다운로드</a><a href="#faq">자주 묻는 질문</a></nav>
   </div>
 </header>
 
@@ -103,7 +105,7 @@
       <div class="step"><h3>참여 신청</h3><p>아래 [참여 신청 메일 쓰기]로 쓰시는 차트 이름과 병원 정보를 알려 주세요.</p></div>
       <div class="step"><h3>추출 프로그램 실행</h3><p>진료가 끝난 뒤 차트 서버 PC에서 실행합니다. DB를 읽기만 하고 구조와 값의 '모양'만 모읍니다.</p></div>
       <div class="step"><h3>미리보기 확인 후 메일로 보내기</h3><p>보낼 내용을 직접 확인하신 뒤, 열리는 Gmail 창에 파일을 첨부해 보내 주세요.</p></div>
-      <div class="step"><h3>무료 데이터 변환</h3><p>변환기가 준비되면 병원 PC 안에서 변환해 드립니다. 데이터는 병원 밖으로 나가지 않고, 기존 차트는 그대로 둡니다.</p></div>
+      <div class="step"><h3>무료 데이터 변환</h3><p>변환기가 준비되면 병원 PC 안에서 진료 기록을 옮겨 드립니다. 데이터는 병원 밖으로 나가지 않고, 기존 차트는 그대로 둡니다.</p></div>
     </div>
     <div class="cta"><a class="btn primary" id="apply" href="#">참여 신청 메일 쓰기</a></div>
     <p class="note">메일 쓰기 창이 열리지 않으면 <b id="addr"></b> 으로 보내 주세요.</p>
@@ -125,7 +127,27 @@
   </div>
 </section>
 
-<section id="download" class="alt">
+<section id="rights" class="alt">
+  <div class="wrap">
+    <h2>자료 보호 원칙 — 기존 차트 회사의 권리를 존중합니다</h2>
+    <p class="sub">진료 기록은 병원의 것입니다. 2026년 5월 한국동물병원협회 요청에 주요 차트 회사들도 "진료데이터 소유권은 동물병원에 있다"고 답했습니다
+      (<a href="https://www.dailyvet.co.kr/news/association/284083" target="_blank" rel="noopener">관련 기사</a>).
+      그와 함께, 차트 회사가 만든 자료와 프로그램은 그 회사의 것입니다. VetChart는 아래 원칙을 지킵니다.</p>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))">
+      <div class="card"><h3>병원이 직접 실행하고 직접 보냅니다</h3><p>추출 프로그램은 원장님이 병원 PC에서 직접 실행하고, 미리보기를 확인한 뒤 보낼지 직접 정합니다. 자동 전송은 없습니다.</p></div>
+      <div class="card"><h3>읽기만, 우회 없음</h3><p>DB를 읽기만 합니다. 차트 프로그램 파일을 분해·복제하지 않고, 차트 회사 서버에 접속하지 않으며, 비밀번호를 풀거나 보호 장치를 우회하지 않습니다.
+        접속은 병원이 아는 계정이나 DB 설치 기본 계정으로만, 물어본 뒤에 합니다.</p></div>
+      <div class="card"><h3>코드표·목록은 가져오지 않습니다</h3><p>처방·처치·약품·백신 코드표, 템플릿처럼 차트 회사가 만들었을 수 있는 자료는 표의 구조만 보고 내용은 남기지 않습니다. 미리보기에 '코드표'로 표시됩니다.</p></div>
+      <div class="card"><h3>옮길 때도 진료 기록만</h3><p>보호자·동물·차트·접종·수납 기록과, 그날 기록된 처치 이름·금액을 옮깁니다. 기존 차트 회사의 코드 체계는 VetChart 목록으로 옮기지 않고, 병원이 VetChart 목록에 직접 맞춥니다.</p></div>
+      <div class="card"><h3>공식 내보내기 우선</h3><p>차트 회사가 내보내기(Excel·CSV 등)를 제공하면 그 파일을 우선 씁니다. VetChart의 기본 목록과 기본값은 다른 차트의 자료가 아니라 VetChart가 따로 만든 것입니다.</p></div>
+      <div class="card"><h3>받은 구조 정보는 변환기에만</h3><p>보내 주신 구조 정보는 그 차트의 변환기를 만드는 데만 쓰고, 공개·판매하거나 다른 곳에 주지 않습니다. 요청하시면 지웁니다.</p></div>
+    </div>
+    <div class="notice"><p><b>차트 회사 관계자분께</b> — 권리 침해가 걱정되는 부분이 있으면 <span id="addr3"></span> 으로 알려 주세요. 확인한 뒤 바로 고치거나 해당 기능을 멈추겠습니다.
+      추출 프로그램의 소스 코드는 모두 <a href="https://github.com/earthdreamer22/vetchart-extractor" target="_blank" rel="noopener">공개</a>되어 있습니다.</p></div>
+  </div>
+</section>
+
+<section id="download">
   <div class="wrap">
     <div class="dl">
       <h2>추출 프로그램 다운로드</h2>
@@ -143,7 +165,7 @@
     <h2>자주 묻는 질문</h2>
     <details><summary>환자 데이터를 가져가나요?</summary><p>아니요. 추출 프로그램은 구조와 값의 '모양'만 보냅니다. 실제 데이터 변환은 나중에 병원 PC 안에서 하고, 그때도 데이터는 병원 밖으로 나가지 않습니다.</p></details>
     <details><summary>지금 쓰는 차트에 문제가 생기지 않나요?</summary><p>추출 프로그램은 DB를 읽기만 합니다. 다만 읽는 동안 차트가 잠깐 느려질 수 있어 진료가 끝난 뒤 실행을 권합니다.</p></details>
-    <details><summary>DB 비밀번호를 모르면요?</summary><p>프로그램이 먼저 기본 방식으로 접속을 시도합니다. 안 되면 화면을 사진으로 보내 주세요. 차트 업체의 협조가 필요한 경우도 있습니다.</p></details>
+    <details><summary>DB 비밀번호를 모르면요?</summary><p>프로그램이 DB 설치 기본 계정으로 접속해 볼지 먼저 물어봅니다. 안 되면 차트 회사에 계정 안내나 내보내기 파일(Excel·CSV)을 요청해 주세요. 차트 회사들은 협회 요청에 데이터 이관 협조를 약속했습니다. 프로그램은 비밀번호를 풀거나 보호 장치를 우회하지 않습니다.</p></details>
     <details><summary>비용이 드나요?</summary><p>베타 참여와 데이터 변환은 무료입니다.</p></details>
     <details><summary>바로 옮겨야 하나요?</summary><p>아니요. 변환한 뒤에도 기존 차트를 그대로 두고 함께 써 보시면서, 준비가 되면 옮기시면 됩니다.</p></details>
     <details><summary>어떤 차트를 지원하나요?</summary><p>Firebird, MS SQL Server, MySQL/MariaDB, PostgreSQL을 쓰는 차트 프로그램의 구조를 읽을 수 있습니다. 변환기는 참여해 주신 차트부터 차례로 만듭니다.</p></details>
@@ -168,6 +190,7 @@
   document.getElementById("apply").target = "_blank";
   document.getElementById("addr").textContent = ADDR;
   document.getElementById("addr2").textContent = ADDR;
+  document.getElementById("addr3").textContent = ADDR;
 </script>
 </body>
 </html>
