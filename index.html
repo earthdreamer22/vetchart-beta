@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VetChart 베타테스터 모집 — 병원 안에 두는 동물병원 차트</title>
-<meta name="description" content="동물병원 전자차트 VetChart 베타테스터를 모집합니다. 무료, 인터넷 없이도 동작, 진료 데이터는 병원 PC에. 지금 쓰시는 차트 데이터를 옮겨 드립니다.">
+<title>Vetchart.ai 베타테스터 모집 — 병원 안에 두는 동물병원 차트</title>
+<meta name="description" content="동물병원 전자차트 Vetchart.ai 베타테스터를 모집합니다. 무료, 인터넷 없이도 동작, 진료 데이터는 병원 PC에. 지금 쓰시는 차트 데이터를 옮겨 드립니다.">
 <style>
   :root { --ink:#25302f; --muted:#5f6b69; --brand:#1f6f6b; --brand-dark:#174f4c; --soft:#eef5f4; --line:#d9e3e1; --warm:#f7f4ee; }
   * { box-sizing: border-box; }
@@ -54,6 +54,9 @@
   details p { color:var(--muted); margin:10px 0 0; }
   footer { border-top:1px solid var(--line); padding:30px 0 50px; color:var(--muted); font-size:14px; }
   .note { font-size:14px; color:var(--muted); }
+  h3.grp { font-size:22px; margin:40px 0 6px; letter-spacing:-.02em; }
+  .ai { display:inline-block; background:var(--brand); color:#fff; border-radius:6px; padding:0 8px; font-size:14px; vertical-align:middle; margin-left:4px; }
+  .card.auto { border-top:4px solid var(--brand); }
   .notice { margin-top:22px; background:#fff; border:1px solid var(--line); border-left:5px solid var(--brand); border-radius:12px; padding:16px 18px; }
   .notice p { margin:0; font-size:15px; }
   @media (max-width:640px) { h1 { font-size:30px; } nav { display:none; } section { padding:48px 0; } .lead { font-size:17px; }
@@ -64,7 +67,7 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#">VetChart <span>베타</span></a>
+    <a class="logo" href="#">Vetchart.ai <span>베타</span></a>
     <nav><a href="#about">소개</a><a href="#how">참여 방법</a><a href="#privacy">보내는 정보</a><a href="#rights">자료 보호 원칙</a><a href="#download">다운로드</a><a href="#faq">자주 묻는 질문</a></nav>
   </div>
 </header>
@@ -72,7 +75,7 @@
 <div class="hero">
   <div class="wrap">
     <span class="badge">베타테스터 모집</span>
-    <h1>진료 데이터는 병원 안에.<br>동물병원 차트 VetChart</h1>
+    <h1>진료 데이터는 병원 안에.<br>동물병원 차트 Vetchart.ai</h1>
     <p class="lead">현직 수의사가 직접 쓰면서 만드는 전자차트입니다. 병원 PC 한 대를 서버로 두고 여러 PC가 함께 씁니다.
       인터넷이 끊겨도 진료·수납이 됩니다. 지금 쓰시는 차트의 데이터를 옮겨 드릴 베타 병원을 찾습니다.</p>
     <div class="cta">
@@ -84,15 +87,21 @@
 
 <section id="about">
   <div class="wrap">
-    <h2>VetChart는 이런 차트입니다</h2>
+    <h2>Vetchart.ai는 이런 차트입니다</h2>
     <p class="sub">실제 동물병원에서 기존 차트와 함께 써 보며 다듬고 있습니다.</p>
-    <div class="grid">
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))">
       <div class="card"><h3>병원 안에 두는 차트</h3><p>클라우드가 아니라 병원 서버 PC에 데이터가 있습니다. 인터넷이 없어도 진료·수납이 되고, 매일 자동으로 백업합니다.</p></div>
       <div class="card"><h3>SOAP 차트</h3><p>주관·객관 소견, 평가·진단, 처방·처치를 한 화면에. 과거 진료와 바이탈 추이, 검사 결과를 옆에서 바로 봅니다.</p></div>
       <div class="card"><h3>수납·일 마감</h3><p>보호자 단위 청구서, 분할 결제·취소·환불, 미수와 미수납 구분, 여러 PC에서 동시에 열어도 맞는 금액.</p></div>
       <div class="card"><h3>예방관리</h3><p>종합백신·광견병·심장사상충·외부기생충의 다음 예정일을 자동 계산하고 예약 목록에 올립니다.</p></div>
-      <div class="card"><h3>검사 결과</h3><p>검사 항목을 표준 이름으로 정리해 결과 추이를 그래프로 봅니다. 엑셀·CSV·PDF 결과도 붙일 수 있습니다.</p></div>
       <div class="card"><h3>서류 출력</h3><p>진료비 세부내역서와 보험 청구용 서류를 차트에서 바로 A4로 출력합니다.</p></div>
+    </div>
+    <h3 class="grp">업무 자동화 <span class="ai">AI</span></h3>
+    <p class="sub" style="margin-bottom:18px">원장님의 Claude AI가 병원 PC 안에서 반복 업무를 대신합니다. 공개·발행처럼 되돌리기 어려운 일은 언제나 원장님 확인 뒤에 합니다.</p>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))">
+      <div class="card auto"><h3>반복 업무 자동화</h3><p>마약류 투약 보고 파일 작성, 부가세 신고 자료 정리, 진료 통계 보고서, 관심 분야 최신 논문 요약 메일처럼 매번 손이 가던 일을 AI가 정리해 드립니다.</p></div>
+      <div class="card auto"><h3>마케팅 자동화</h3><p>치료 사례와 병원 소식으로 블로그 글·카드 이미지·쇼츠 영상 초안을 만들고, 홈페이지 진료 안내도 말 한마디로 고칩니다. 발행은 원장님이 확인한 뒤에.</p></div>
+      <div class="card auto"><h3>업무 매뉴얼 자동화</h3><p>상담 통화를 병원 PC에서 글로 바꾸고(개인정보는 가림) 고객응대 매뉴얼 수정안을 만듭니다. 원장님이 승인하면 모든 PC에서 최신 매뉴얼을 봅니다.</p></div>
     </div>
   </div>
 </section>
@@ -100,7 +109,7 @@
 <section id="how" class="alt">
   <div class="wrap">
     <h2>베타 참여 방법</h2>
-    <p class="sub">지금 쓰시는 차트에서 VetChart로 옮기는 변환기를 만들려면 그 차트의 'DB 구조'를 알아야 합니다. 환자 데이터는 받지 않습니다.</p>
+    <p class="sub">지금 쓰시는 차트에서 Vetchart.ai로 옮기는 변환기를 만들려면 그 차트의 'DB 구조'를 알아야 합니다. 환자 데이터는 받지 않습니다.</p>
     <div class="steps">
       <div class="step"><h3>참여 신청</h3><p>아래 [참여 신청 메일 쓰기]로 쓰시는 차트 이름과 병원 정보를 알려 주세요.</p></div>
       <div class="step"><h3>추출 프로그램 실행</h3><p>진료가 끝난 뒤 차트 서버 PC에서 실행합니다. DB를 읽기만 하고 구조와 값의 '모양'만 모읍니다.</p></div>
@@ -132,14 +141,14 @@
     <h2>자료 보호 원칙 — 기존 차트 회사의 권리를 존중합니다</h2>
     <p class="sub">진료 기록은 병원의 것입니다. 2026년 5월 한국동물병원협회 요청에 주요 차트 회사들도 "진료데이터 소유권은 동물병원에 있다"고 답했습니다
       (<a href="https://www.dailyvet.co.kr/news/association/284083" target="_blank" rel="noopener">관련 기사</a>).
-      그와 함께, 차트 회사가 만든 자료와 프로그램은 그 회사의 것입니다. VetChart는 아래 원칙을 지킵니다.</p>
+      그와 함께, 차트 회사가 만든 자료와 프로그램은 그 회사의 것입니다. Vetchart.ai는 아래 원칙을 지킵니다.</p>
     <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))">
       <div class="card"><h3>병원이 직접 실행하고 직접 보냅니다</h3><p>추출 프로그램은 원장님이 병원 PC에서 직접 실행하고, 미리보기를 확인한 뒤 보낼지 직접 정합니다. 자동 전송은 없습니다.</p></div>
       <div class="card"><h3>읽기만, 우회 없음</h3><p>DB를 읽기만 합니다. 차트 프로그램 파일을 분해·복제하지 않고, 차트 회사 서버에 접속하지 않으며, 비밀번호를 풀거나 보호 장치를 우회하지 않습니다.
         접속은 병원이 아는 계정이나 DB 설치 기본 계정으로만, 물어본 뒤에 합니다.</p></div>
       <div class="card"><h3>코드표·목록은 가져오지 않습니다</h3><p>처방·처치·약품·백신 코드표, 템플릿처럼 차트 회사가 만들었을 수 있는 자료는 표의 구조만 보고 내용은 남기지 않습니다. 미리보기에 '코드표'로 표시됩니다.</p></div>
-      <div class="card"><h3>옮길 때도 진료 기록만</h3><p>보호자·동물·차트·접종·수납 기록과, 그날 기록된 처치 이름·금액을 옮깁니다. 기존 차트 회사의 코드 체계는 VetChart 목록으로 옮기지 않고, 병원이 VetChart 목록에 직접 맞춥니다.</p></div>
-      <div class="card"><h3>공식 내보내기 우선</h3><p>차트 회사가 내보내기(Excel·CSV 등)를 제공하면 그 파일을 우선 씁니다. VetChart의 기본 목록과 기본값은 다른 차트의 자료가 아니라 VetChart가 따로 만든 것입니다.</p></div>
+      <div class="card"><h3>옮길 때도 진료 기록만</h3><p>보호자·동물·차트·접종·수납 기록과, 그날 기록된 처치 이름·금액을 옮깁니다. 기존 차트 회사의 코드 체계는 Vetchart.ai 목록으로 옮기지 않고, 병원이 Vetchart.ai 목록에 직접 맞춥니다.</p></div>
+      <div class="card"><h3>공식 내보내기 우선</h3><p>차트 회사가 내보내기(Excel·CSV 등)를 제공하면 그 파일을 우선 씁니다. Vetchart.ai의 기본 목록과 기본값은 다른 차트의 자료가 아니라 Vetchart.ai가 따로 만든 것입니다.</p></div>
       <div class="card"><h3>받은 구조 정보는 변환기에만</h3><p>보내 주신 구조 정보는 그 차트의 변환기를 만드는 데만 쓰고, 공개·판매하거나 다른 곳에 주지 않습니다. 요청하시면 지웁니다.</p></div>
     </div>
     <div class="notice"><p><b>차트 회사 관계자분께</b> — 권리 침해가 걱정되는 부분이 있으면 <span id="addr3"></span> 으로 알려 주세요. 확인한 뒤 바로 고치거나 해당 기능을 멈추겠습니다.
@@ -176,15 +185,15 @@
   <div class="wrap">
     <p><b>개인정보 처리 안내</b> — 참여 신청 메일로 받은 병원 이름·연락처는 베타 운영 연락에만 쓰고, 베타가 끝나거나 요청하시면 지웁니다.
       추출 프로그램 결과 파일에는 개인정보가 들어 있지 않습니다. 문의: <span id="addr2"></span></p>
-    <p>© 2026 VetChart</p>
+    <p>© 2026 Vetchart.ai</p>
   </div>
 </footer>
 
 <script>
   // 받는 주소는 한 곳에서만 바꾼다
   var ADDR = "philli2222@gmail.com";
-  var subject = "[VetChart 베타] 참여 신청";
-  var body = "VetChart 베타 참여를 신청합니다.\n\n- 병원 이름:\n- 지역:\n- 지금 쓰는 차트 프로그램:\n- 차트를 쓰는 PC 수:\n- 연락처(선택):\n";
+  var subject = "[Vetchart.ai 베타] 참여 신청";
+  var body = "Vetchart.ai 베타 참여를 신청합니다.\n\n- 병원 이름:\n- 지역:\n- 지금 쓰는 차트 프로그램:\n- 차트를 쓰는 PC 수:\n- 연락처(선택):\n";
   document.getElementById("apply").href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(ADDR) +
     "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
   document.getElementById("apply").target = "_blank";
