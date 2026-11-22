@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VetChart 베타테스터 모집 — 병원 안에 두는 동물병원 차트</title>
+<meta name="description" content="동물병원 전자차트 VetChart 베타테스터를 모집합니다. 무료, 인터넷 없이도 동작, 진료 데이터는 병원 PC에. 지금 쓰시는 차트 데이터를 옮겨 드립니다.">
+<style>
+  :root { --ink:#25302f; --muted:#5f6b69; --brand:#1f6f6b; --brand-dark:#174f4c; --soft:#eef5f4; --line:#d9e3e1; --warm:#f7f4ee; }
+  * { box-sizing: border-box; }
+  html, body { overflow-x: hidden; }
+  body { margin:0; font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif; color:var(--ink); line-height:1.65; word-break:keep-all; }
+  a { color:var(--brand); }
+  .wrap { max-width:1040px; margin:0 auto; padding:0 22px; }
+  header.top { position:sticky; top:0; background:rgba(255,255,255,.94); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); z-index:5; }
+  header.top .wrap { display:flex; align-items:center; justify-content:space-between; height:60px; }
+  .logo { font-weight:800; font-size:20px; color:var(--brand-dark); text-decoration:none; letter-spacing:-.02em; }
+  .logo span { color:var(--muted); font-weight:500; font-size:14px; margin-left:6px; }
+  nav a { margin-left:18px; text-decoration:none; color:var(--muted); font-size:15px; }
+  .hero { background:linear-gradient(160deg,var(--soft),#fff 60%); padding:72px 0 64px; }
+  .badge { display:inline-block; background:var(--brand); color:#fff; border-radius:999px; padding:4px 14px; font-size:14px; font-weight:600; }
+  h1 { font-size:42px; line-height:1.25; margin:18px 0 14px; letter-spacing:-.03em; }
+  .lead { font-size:19px; color:var(--muted); max-width:720px; }
+  .cta { margin-top:28px; display:flex; flex-wrap:wrap; gap:12px; }
+  .btn { display:inline-block; padding:14px 24px; border-radius:10px; font-weight:700; text-decoration:none; font-size:16px; }
+  .btn.primary { background:var(--brand); color:#fff; }
+  .btn.primary:hover { background:var(--brand-dark); }
+  .btn.ghost { border:2px solid var(--brand); color:var(--brand); background:#fff; }
+  section { padding:64px 0; }
+  section.alt { background:var(--warm); }
+  h2 { font-size:30px; letter-spacing:-.02em; margin:0 0 8px; }
+  .sub { color:var(--muted); margin:0 0 30px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr)); gap:16px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px; }
+  .card h3 { margin:0 0 6px; font-size:18px; }
+  .card p { margin:0; color:var(--muted); font-size:15px; }
+  .steps { counter-reset:s; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr)); gap:16px; }
+  .step { background:#fff; border:1px solid var(--line); border-radius:14px; padding:22px 20px 20px; position:relative; }
+  .step::before { counter-increment:s; content:counter(s); position:absolute; top:-14px; left:18px; width:30px; height:30px; border-radius:50%;
+                  background:var(--brand); color:#fff; font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .step h3 { margin:6px 0 6px; font-size:18px; }
+  .step p { margin:0; color:var(--muted); font-size:15px; }
+  table.cmp { width:100%; border-collapse:collapse; background:#fff; border-radius:12px; overflow:hidden; }
+  table.cmp th, table.cmp td { border:1px solid var(--line); padding:12px 14px; vertical-align:top; text-align:left; font-size:15px; }
+  table.cmp th { background:var(--soft); }
+  .ok { color:#1d7a46; font-weight:700; } .no { color:#b33a3a; font-weight:700; }
+  .dl { background:var(--brand-dark); color:#fff; border-radius:16px; padding:30px; display:grid; gap:12px; }
+  .dl h2 { color:#fff; }
+  .dl code { background:rgba(255,255,255,.12); padding:2px 6px; border-radius:6px; font-size:13px; word-break:break-all; }
+  .dl .btn.primary { background:#fff; color:var(--brand-dark); }
+  .dl a.lnk { color:#cfe7e4; }
+  details { background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin-bottom:10px; }
+  summary { font-weight:700; cursor:pointer; }
+  details p { color:var(--muted); margin:10px 0 0; }
+  footer { border-top:1px solid var(--line); padding:30px 0 50px; color:var(--muted); font-size:14px; }
+  .note { font-size:14px; color:var(--muted); }
+  @media (max-width:640px) { h1 { font-size:30px; } nav { display:none; } section { padding:48px 0; } .lead { font-size:17px; }
+    table.cmp th, table.cmp td { padding:8px 9px; font-size:13px; } .steps { gap:26px; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#">VetChart <span>베타</span></a>
+    <nav><a href="#about">소개</a><a href="#how">참여 방법</a><a href="#privacy">보내는 정보</a><a href="#download">다운로드</a><a href="#faq">자주 묻는 질문</a></nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="badge">베타테스터 모집</span>
+    <h1>진료 데이터는 병원 안에.<br>동물병원 차트 VetChart</h1>
+    <p class="lead">현직 수의사가 직접 쓰면서 만드는 전자차트입니다. 병원 PC 한 대를 서버로 두고 여러 PC가 함께 씁니다.
+      인터넷이 끊겨도 진료·수납이 됩니다. 지금 쓰시는 차트의 데이터를 옮겨 드릴 베타 병원을 찾습니다.</p>
+    <div class="cta">
+      <a class="btn primary" href="#how">참여 방법 보기</a>
+      <a class="btn ghost" href="#download">추출 프로그램 받기</a>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <h2>VetChart는 이런 차트입니다</h2>
+    <p class="sub">실제 동물병원에서 기존 차트와 함께 써 보며 다듬고 있습니다.</p>
+    <div class="grid">
+      <div class="card"><h3>병원 안에 두는 차트</h3><p>클라우드가 아니라 병원 서버 PC에 데이터가 있습니다. 인터넷이 없어도 진료·수납이 되고, 매일 자동으로 백업합니다.</p></div>
+      <div class="card"><h3>SOAP 차트</h3><p>주관·객관 소견, 평가·진단, 처방·처치를 한 화면에. 과거 진료와 바이탈 추이, 검사 결과를 옆에서 바로 봅니다.</p></div>
+      <div class="card"><h3>수납·일 마감</h3><p>보호자 단위 청구서, 분할 결제·취소·환불, 미수와 미수납 구분, 여러 PC에서 동시에 열어도 맞는 금액.</p></div>
+      <div class="card"><h3>예방관리</h3><p>종합백신·광견병·심장사상충·외부기생충의 다음 예정일을 자동 계산하고 예약 목록에 올립니다.</p></div>
+      <div class="card"><h3>검사 결과</h3><p>검사 항목을 표준 이름으로 정리해 결과 추이를 그래프로 봅니다. 엑셀·CSV·PDF 결과도 붙일 수 있습니다.</p></div>
+      <div class="card"><h3>서류 출력</h3><p>진료비 세부내역서와 보험 청구용 서류를 차트에서 바로 A4로 출력합니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="alt">
+  <div class="wrap">
+    <h2>베타 참여 방법</h2>
+    <p class="sub">지금 쓰시는 차트에서 VetChart로 옮기는 변환기를 만들려면 그 차트의 'DB 구조'를 알아야 합니다. 환자 데이터는 받지 않습니다.</p>
+    <div class="steps">
+      <div class="step"><h3>참여 신청</h3><p>아래 [참여 신청 메일 쓰기]로 쓰시는 차트 이름과 병원 정보를 알려 주세요.</p></div>
+      <div class="step"><h3>추출 프로그램 실행</h3><p>진료가 끝난 뒤 차트 서버 PC에서 실행합니다. DB를 읽기만 하고 구조와 값의 '모양'만 모읍니다.</p></div>
+      <div class="step"><h3>미리보기 확인 후 메일로 보내기</h3><p>보낼 내용을 직접 확인하신 뒤, 열리는 Gmail 창에 파일을 첨부해 보내 주세요.</p></div>
+      <div class="step"><h3>무료 데이터 변환</h3><p>변환기가 준비되면 병원 PC 안에서 변환해 드립니다. 데이터는 병원 밖으로 나가지 않고, 기존 차트는 그대로 둡니다.</p></div>
+    </div>
+    <div class="cta"><a class="btn primary" id="apply" href="#">참여 신청 메일 쓰기</a></div>
+    <p class="note">메일 쓰기 창이 열리지 않으면 <b id="addr"></b> 으로 보내 주세요.</p>
+  </div>
+</section>
+
+<section id="privacy">
+  <div class="wrap">
+    <h2>보내는 정보와 보내지 않는 정보</h2>
+    <p class="sub">추출 프로그램의 소스 코드는 모두 공개되어 있습니다. 무엇을 읽고 무엇을 남기는지 직접 확인하실 수 있습니다.</p>
+    <table class="cmp">
+      <tr><th class="ok">보내는 것</th><th class="no">보내지 않는 것</th></tr>
+      <tr><td>DB 종류·버전, 표와 칸 이름, 칸 형식, 행 수, 표 사이 연결(키)</td><td>보호자 이름·전화번호·주소·이메일</td></tr>
+      <tr><td>비어 있는 비율, 글 길이, 한글·영문·숫자 비율</td><td>동물 이름, 진료 내용, 메모</td></tr>
+      <tr><td>날짜·전화번호처럼 '보이는' 비율, 형식 틀 (<code>####-##-##</code>, <code>가가가</code>)</td><td>직원·수의사 이름, 금액·날짜의 실제 값</td></tr>
+      <tr><td>성별·종·상태처럼 짧고 자주 나오는 코드 값</td><td>드문 값, 사람 이름처럼 생긴 값, 사진·파일 내용</td></tr>
+    </table>
+    <p class="note" style="margin-top:14px">DB 접속 비밀번호를 물어볼 수 있습니다. 그 PC에서 접속에만 쓰고 저장하거나 보내지 않습니다. 프로그램은 메일을 혼자 보내지 않습니다.</p>
+  </div>
+</section>
+
+<section id="download" class="alt">
+  <div class="wrap">
+    <div class="dl">
+      <h2>추출 프로그램 다운로드</h2>
+      <p style="margin:0">Windows용 · 설치 없이 실행 · 차트 서버 PC에서 진료가 끝난 뒤 실행해 주세요.</p>
+      <div><a class="btn primary" href="https://github.com/earthdreamer22/vetchart-extractor/releases/latest/download/VetChart_Extractor.exe">VetChart_Extractor.exe 받기</a></div>
+      <p class="note" style="color:#cfe7e4;margin:0">서명되지 않은 프로그램이라 Windows가 경고할 수 있습니다 → [추가 정보] → [실행].
+        받은 파일이 공개된 것과 같은지는 <a class="lnk" href="https://github.com/earthdreamer22/vetchart-extractor/releases/latest">릴리스 페이지</a>의 SHA-256으로 확인하실 수 있습니다.</p>
+      <p style="margin:0"><a class="lnk" href="https://github.com/earthdreamer22/vetchart-extractor">소스 코드 보기 (GitHub)</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>자주 묻는 질문</h2>
+    <details><summary>환자 데이터를 가져가나요?</summary><p>아니요. 추출 프로그램은 구조와 값의 '모양'만 보냅니다. 실제 데이터 변환은 나중에 병원 PC 안에서 하고, 그때도 데이터는 병원 밖으로 나가지 않습니다.</p></details>
+    <details><summary>지금 쓰는 차트에 문제가 생기지 않나요?</summary><p>추출 프로그램은 DB를 읽기만 합니다. 다만 읽는 동안 차트가 잠깐 느려질 수 있어 진료가 끝난 뒤 실행을 권합니다.</p></details>
+    <details><summary>DB 비밀번호를 모르면요?</summary><p>프로그램이 먼저 기본 방식으로 접속을 시도합니다. 안 되면 화면을 사진으로 보내 주세요. 차트 업체의 협조가 필요한 경우도 있습니다.</p></details>
+    <details><summary>비용이 드나요?</summary><p>베타 참여와 데이터 변환은 무료입니다.</p></details>
+    <details><summary>바로 옮겨야 하나요?</summary><p>아니요. 변환한 뒤에도 기존 차트를 그대로 두고 함께 써 보시면서, 준비가 되면 옮기시면 됩니다.</p></details>
+    <details><summary>어떤 차트를 지원하나요?</summary><p>Firebird, MS SQL Server, MySQL/MariaDB, PostgreSQL을 쓰는 차트 프로그램의 구조를 읽을 수 있습니다. 변환기는 참여해 주신 차트부터 차례로 만듭니다.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>개인정보 처리 안내</b> — 참여 신청 메일로 받은 병원 이름·연락처는 베타 운영 연락에만 쓰고, 베타가 끝나거나 요청하시면 지웁니다.
+      추출 프로그램 결과 파일에는 개인정보가 들어 있지 않습니다. 문의: <span id="addr2"></span></p>
+    <p>© 2026 VetChart</p>
+  </div>
+</footer>
+
+<script>
+  // 받는 주소는 한 곳에서만 바꾼다
+  var ADDR = "vetchart.beta@example.com";
+  var subject = "[VetChart 베타] 참여 신청";
+  var body = "VetChart 베타 참여를 신청합니다.\n\n- 병원 이름:\n- 지역:\n- 지금 쓰는 차트 프로그램:\n- 차트를 쓰는 PC 수:\n- 연락처(선택):\n";
+  document.getElementById("apply").href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(ADDR) +
+    "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  document.getElementById("apply").target = "_blank";
+  document.getElementById("addr").textContent = ADDR;
+  document.getElementById("addr2").textContent = ADDR;
+</script>
+</body>
+</html>
